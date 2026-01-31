@@ -123,19 +123,20 @@
             // lblInstruct
             // 
             lblInstruct.AutoSize = true;
-            lblInstruct.Location = new Point(149, 56);
+            lblInstruct.Location = new Point(115, 49);
             lblInstruct.Name = "lblInstruct";
-            lblInstruct.Size = new Size(161, 20);
+            lblInstruct.Size = new Size(212, 20);
             lblInstruct.TabIndex = 1;
-            lblInstruct.Text = "Click tasks to complete";
+            lblInstruct.Text = "Double click tasks to complete";
             // 
             // lbTasks
             // 
             lbTasks.FormattingEnabled = true;
-            lbTasks.Location = new Point(6, 79);
+            lbTasks.Location = new Point(11, 72);
             lbTasks.Name = "lbTasks";
-            lbTasks.Size = new Size(440, 164);
+            lbTasks.Size = new Size(435, 164);
             lbTasks.TabIndex = 0;
+            lbTasks.DoubleClick += lbTasks_click;
             // 
             // Form1
             // 
