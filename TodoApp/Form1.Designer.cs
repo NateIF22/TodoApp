@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             lblTask = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtTask = new TextBox();
+            txtDueDate = new TextBox();
             lblDueDate = new Label();
             gbCreateTask = new GroupBox();
-            btnAdd = new Button();
             btnClear = new Button();
+            btnAdd = new Button();
             gbToDo = new GroupBox();
-            lbTasks = new ListBox();
             lblInstruct = new Label();
+            lbTasks = new ListBox();
             gbCreateTask.SuspendLayout();
             gbToDo.SuspendLayout();
             SuspendLayout();
@@ -51,19 +51,19 @@
             lblTask.TabIndex = 0;
             lblTask.Text = "Task";
             // 
-            // textBox1
+            // txtTask
             // 
-            textBox1.Location = new Point(54, 23);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(416, 27);
-            textBox1.TabIndex = 1;
+            txtTask.Location = new Point(54, 23);
+            txtTask.Name = "txtTask";
+            txtTask.Size = new Size(398, 27);
+            txtTask.TabIndex = 1;
             // 
-            // textBox2
+            // txtDueDate
             // 
-            textBox2.Location = new Point(90, 59);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(380, 27);
-            textBox2.TabIndex = 3;
+            txtDueDate.Location = new Point(90, 59);
+            txtDueDate.Name = "txtDueDate";
+            txtDueDate.Size = new Size(362, 27);
+            txtDueDate.TabIndex = 3;
             // 
             // lblDueDate
             // 
@@ -78,8 +78,8 @@
             // 
             gbCreateTask.Controls.Add(btnClear);
             gbCreateTask.Controls.Add(btnAdd);
-            gbCreateTask.Controls.Add(textBox1);
-            gbCreateTask.Controls.Add(textBox2);
+            gbCreateTask.Controls.Add(txtTask);
+            gbCreateTask.Controls.Add(txtDueDate);
             gbCreateTask.Controls.Add(lblTask);
             gbCreateTask.Controls.Add(lblDueDate);
             gbCreateTask.Location = new Point(12, 12);
@@ -88,6 +88,16 @@
             gbCreateTask.TabIndex = 4;
             gbCreateTask.TabStop = false;
             gbCreateTask.Text = "Create Task";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(258, 92);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(94, 29);
+            btnClear.TabIndex = 5;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
@@ -98,15 +108,6 @@
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
-            // 
-            // btnClear
-            // 
-            btnClear.Location = new Point(258, 92);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(94, 29);
-            btnClear.TabIndex = 5;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
             // 
             // gbToDo
             // 
@@ -119,6 +120,15 @@
             gbToDo.TabStop = false;
             gbToDo.Text = "Tasks To Do";
             // 
+            // lblInstruct
+            // 
+            lblInstruct.AutoSize = true;
+            lblInstruct.Location = new Point(149, 56);
+            lblInstruct.Name = "lblInstruct";
+            lblInstruct.Size = new Size(161, 20);
+            lblInstruct.TabIndex = 1;
+            lblInstruct.Text = "Click tasks to complete";
+            // 
             // lbTasks
             // 
             lbTasks.FormattingEnabled = true;
@@ -126,15 +136,6 @@
             lbTasks.Name = "lbTasks";
             lbTasks.Size = new Size(440, 164);
             lbTasks.TabIndex = 0;
-            // 
-            // lblInstruct
-            // 
-            lblInstruct.AutoSize = true;
-            lblInstruct.Location = new Point(149, 56);
-            lblInstruct.Name = "lblInstruct";
-            lblInstruct.Size = new Size(167, 20);
-            lblInstruct.TabIndex = 1;
-            lblInstruct.Text = "Click to complete a task";
             // 
             // Form1
             // 
@@ -155,8 +156,8 @@
         #endregion
 
         private Label lblTask;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtTask;
+        private TextBox txtDueDate;
         private Label lblDueDate;
         private GroupBox gbCreateTask;
         private Button btnClear;

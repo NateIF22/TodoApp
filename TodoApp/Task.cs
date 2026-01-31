@@ -10,11 +10,11 @@ namespace TodoApp
         public string DueDate { get; set; }
         public bool IsCompleted { get; set; } = false;
     
-        public Task(string description)
+        public Task()
         {
         }
 
-        public override string ToString()
+        public override string? ToString()
         {
             return $"{DueDate} - {Description} - Completed: {IsCompleted}";
         }
