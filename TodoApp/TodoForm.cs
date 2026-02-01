@@ -107,9 +107,13 @@ namespace TodoApp
             if (selectedTask != null)
             {
                 // Toggle the task's completion
-                selectedTask.IsCompleted = !selectedTask.IsCompleted;
+                selectedTask.IsCompleted = true;
+
                 // Update the list box to reflect the new change
                 UpdateContactListBox();
+
+                // Show a message box to inform the user
+                MessageBox.Show($"'{selectedTask.Description}' has been marked as done", "Task Complete");
             }
         }
     }

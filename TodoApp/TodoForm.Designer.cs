@@ -125,11 +125,11 @@
             // lblInstruct
             // 
             lblInstruct.AutoSize = true;
-            lblInstruct.Location = new Point(115, 49);
+            lblInstruct.Location = new Point(149, 49);
             lblInstruct.Name = "lblInstruct";
-            lblInstruct.Size = new Size(212, 20);
+            lblInstruct.Size = new Size(161, 20);
             lblInstruct.TabIndex = 1;
-            lblInstruct.Text = "Double click tasks to complete";
+            lblInstruct.Text = "Click tasks to complete";
             // 
             // lbTasks
             // 
@@ -138,16 +138,16 @@
             lbTasks.Name = "lbTasks";
             lbTasks.Size = new Size(435, 164);
             lbTasks.TabIndex = 0;
-            lbTasks.DoubleClick += lbTasks_click;
+            lbTasks.Click += lbTasks_click;
             // 
-            // Form1
+            // TodoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(482, 453);
             Controls.Add(gbToDo);
             Controls.Add(gbCreateTask);
-            Name = "Form1";
+            Name = "TodoForm";
             Text = "Form1";
             gbCreateTask.ResumeLayout(false);
             gbCreateTask.PerformLayout();
