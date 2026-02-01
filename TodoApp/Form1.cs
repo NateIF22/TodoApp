@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+
 
 namespace TodoApp
 {
@@ -16,9 +18,21 @@ namespace TodoApp
         {
             lbTasks.Items.Clear();
             foreach (Task task in Tasks)
+                {
+                    lbTasks.Items.Add(task);
+                }
+        }
+
+        private void SortTasks()
+        {
+            if (Tasks.Count > 0)
             {
-                // make sort by due date
-                lbTasks.Items.Add(task);
+                Tasks.Sort((x, y) => DateTime.Parse(x.DueDate).CompareTo(DateTime.Parse(y.DueDate)));
+
+                foreach (Task task in Tasks) 
+                {
+                    task.Number = Tasks.IndexOf(task) + 1;
+                }
             }
         }
 
@@ -40,6 +54,13 @@ namespace TodoApp
                 txtDueDate.Focus();
                 return false;
             }
+            if (!DateTime.TryParse(txtDueDate.Text, out _))
+            {
+                MessageBox.Show("Invalid Due Date format.", "Error");
+                txtDueDate.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -54,6 +75,8 @@ namespace TodoApp
             // Get the task from the input box
             // Create a new task item
             // Add the task item to the list
+            // sort the tasks by date before adding them to the list box, then set Number property
+
             if (!IsValidInput())
             {
                 return;
@@ -61,10 +84,12 @@ namespace TodoApp
 
             Task newTask = new Task
             {
-                DueDate = txtDueDate.Text,
+                DueDate = DateTime.Parse(txtDueDate.Text).ToString("MM/dd/yyyy"),
                 Description = txtTask.Text,
             };
+
             Tasks.Add(newTask);
+            SortTasks();
             UpdateContactListBox();
             ClearInputFields();
         }
@@ -78,6 +103,7 @@ namespace TodoApp
         {
             Task selectedTask = (Task)lbTasks.SelectedItem;
 
+            // Make sure the selected task is not null
             if (selectedTask != null)
             {
                 // Toggle the task's completion

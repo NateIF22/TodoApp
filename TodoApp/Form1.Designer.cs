@@ -55,6 +55,7 @@
             // 
             txtTask.Location = new Point(54, 23);
             txtTask.Name = "txtTask";
+            txtTask.PlaceholderText = "Task Description";
             txtTask.Size = new Size(398, 27);
             txtTask.TabIndex = 1;
             // 
@@ -62,6 +63,7 @@
             // 
             txtDueDate.Location = new Point(90, 59);
             txtDueDate.Name = "txtDueDate";
+            txtDueDate.PlaceholderText = "MM/DD/YYYY";
             txtDueDate.Size = new Size(362, 27);
             txtDueDate.TabIndex = 3;
             // 

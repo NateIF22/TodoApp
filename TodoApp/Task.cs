@@ -6,6 +6,7 @@ namespace TodoApp
 {
     public class Task
     {
+        public int Number { get; set; }
         public string Description { get; set; }
         public string DueDate { get; set; }
         public bool IsCompleted { get; set; } = false;
@@ -16,7 +17,7 @@ namespace TodoApp
 
         public override string? ToString()
         {
-            return $"{DueDate} - {Description} - Completed: {IsCompleted}";
+            return $"{Number} - {DueDate} - {Description} - Completed: {IsCompleted}";
         }
     }
 }
