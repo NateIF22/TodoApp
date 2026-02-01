@@ -1,6 +1,6 @@
 ﻿namespace TodoApp
 {
-    partial class Form1
+    partial class TodoForm
     {
         /// <summary>
         ///  Required designer variable.

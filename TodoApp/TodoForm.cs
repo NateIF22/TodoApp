@@ -4,11 +4,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace TodoApp
 {
-    public partial class Form1 : Form
+    public partial class TodoForm : Form
     {
         public List<Task> Tasks { get; set; }
 
-        public Form1()
+        public TodoForm()
         {
             InitializeComponent();
             Tasks = new List<Task>();
