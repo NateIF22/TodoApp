@@ -1,11 +1,13 @@
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel;
 
 
 namespace TodoApp
 {
     public partial class TodoForm : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Task> Tasks { get; set; }
 
         public TodoForm()
@@ -14,13 +16,17 @@ namespace TodoApp
             Tasks = new List<Task>();
         }
 
-        public void UpdateContactListBox()
+        public void UpdateContacts()
         {
-            lbTasks.Items.Clear();
             foreach (Task task in Tasks)
-                {
-                    lbTasks.Items.Add(task);
-                }
+            {
+                fpTasks.Controls.Add(new TaskControl(task));
+            }
+            //lbTasks.Items.Clear();
+            //foreach (Task task in Tasks)
+            //    {
+            //        lbTasks.Items.Add(task);
+            //    }
         }
 
         private void SortTasks()
@@ -75,7 +81,7 @@ namespace TodoApp
             // Get the task from the input box
             // Create a new task item
             // Add the task item to the list
-            // sort the tasks by date before adding them to the list box, then set Number property
+            // sort the tasks by date before adding them to the list box, and set Number property
 
             if (!IsValidInput())
             {
@@ -90,7 +96,7 @@ namespace TodoApp
 
             Tasks.Add(newTask);
             SortTasks();
-            UpdateContactListBox();
+            UpdateContacts();
             ClearInputFields();
         }
 
@@ -101,20 +107,20 @@ namespace TodoApp
 
         private void lbTasks_click(object sender, EventArgs e)
         {
-            Task selectedTask = (Task)lbTasks.SelectedItem;
+            //Task selectedTask = (Task)lbTasks.SelectedItem;
 
-            // Make sure the selected task is not null
-            if (selectedTask != null)
-            {
-                // Toggle the task's completion
-                selectedTask.IsCompleted = true;
+            //// Make sure the selected task is not null
+            //if (selectedTask != null)
+            //{
+            //    // Toggle the task's completion
+            //    selectedTask.IsCompleted = true;
 
-                // Update the list box to reflect the new change
-                UpdateContactListBox();
+            //    // Update the list box to reflect the new change
+            //    UpdateContactListBox();
 
-                // Show a message box to inform the user
-                MessageBox.Show($"'{selectedTask.Description}' has been marked as done", "Task Complete");
-            }
+            //    // Show a message box to inform the user
+            //    MessageBox.Show($"'{selectedTask.Description}' has been marked as done", "Task Complete");
+            //}
         }
     }
 }
