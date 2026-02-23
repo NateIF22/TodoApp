@@ -45,6 +45,28 @@ namespace TodoApp
             fpTasks.Controls.Add(item);
         }
 
+        public void UpdateTasks()
+        {
+            fpTasks.Controls.Clear();
+            foreach (Task task in Tasks)
+            {
+                fpTasks.Controls.Add(new TaskControl(task));
+            }
+        }
+
+        public void AddTask(
+            string description,
+            string dueDate
+            )
+        {
+            Tasks.Add(new Task
+            {
+                Description = description,
+                DueDate = dueDate
+            });
+        }
+
+
         private void SortTasks()
         {
             if (Tasks.Count > 0)
