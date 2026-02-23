@@ -17,14 +17,14 @@ namespace TodoApp
             InitializeComponent();
             TaskDetails = taskDetails;
 
-            lblTask.Text = taskDetails.Description;
-            lblDueDate.Text = taskDetails.DueDate;
+            lblTask.DataBindings.Add("Text", TaskDetails, "Description");
+            lblDueDate.DataBindings.Add("Text", TaskDetails, "DueDate");
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
             var frm = this.FindForm() as TodoForm;
-            
+
             if (frm != null)
             {
                 // delete myself from the list of contacts on the base for.
@@ -33,7 +33,6 @@ namespace TodoApp
                 Console.WriteLine($"Task '{TaskDetails.Description}' marked as complete and removed from the list.");
             }
         }
-
     }
-    
+
 }

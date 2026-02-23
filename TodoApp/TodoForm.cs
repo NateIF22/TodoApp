@@ -8,21 +8,41 @@ namespace TodoApp
     public partial class TodoForm : Form
     {
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Task> Tasks { get; set; }
+        public BindingList<Task> Tasks { get; set; }
 
+        private BindingSource taskBindingSource;
         public TodoForm()
         {
             InitializeComponent();
-            Tasks = new List<Task>();
+            Tasks = new BindingList<Task>();
+            taskBindingSource = new BindingSource();
+            taskBindingSource.DataSource = Tasks;
+
+            taskBindingSource.ListChanged += TaskBindingSource_ListChanged;
         }
 
-        public void UpdateContacts()
+        private void TaskBindingSource_ListChanged(object? sender, ListChangedEventArgs e)
         {
-            fpTasks.Controls.Clear();
-            foreach (Task task in Tasks)
+            if (e.ListChangedType == ListChangedType.ItemAdded)
             {
-                fpTasks.Controls.Add(new TaskControl(task));
+                var contact = Tasks[e.NewIndex];
+                AddTasksControl(contact);
             }
+            else if (e.ListChangedType == ListChangedType.ItemDeleted)
+            {
+                fpTasks.Controls.Clear();
+
+                foreach (var contact in Tasks)
+                {
+                    AddTasksControl(contact);
+                }
+            }
+        }
+
+        private void AddTasksControl(Task contact)
+        {
+            var item = new TaskControl(contact);
+            fpTasks.Controls.Add(item);
         }
 
         private void SortTasks()
