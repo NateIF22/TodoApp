@@ -29,8 +29,6 @@ namespace TodoApp
             {
                 // delete myself from the list of contacts on the base for.
                 frm.Tasks.Remove(TaskDetails);
-                frm.UpdateContacts();
-                Console.WriteLine($"Task '{TaskDetails.Description}' marked as complete and removed from the list.");
             }
         }
     }

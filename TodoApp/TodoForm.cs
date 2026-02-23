@@ -25,23 +25,23 @@ namespace TodoApp
         {
             if (e.ListChangedType == ListChangedType.ItemAdded)
             {
-                var contact = Tasks[e.NewIndex];
-                AddTasksControl(contact);
+                var task = Tasks[e.NewIndex];
+                AddTasksControl(task);
             }
             else if (e.ListChangedType == ListChangedType.ItemDeleted)
             {
                 fpTasks.Controls.Clear();
 
-                foreach (var contact in Tasks)
+                foreach (var task in Tasks)
                 {
-                    AddTasksControl(contact);
+                    AddTasksControl(task);
                 }
             }
         }
 
-        private void AddTasksControl(Task contact)
+        private void AddTasksControl(Task task)
         {
-            var item = new TaskControl(contact);
+            var item = new TaskControl(task);
             fpTasks.Controls.Add(item);
         }
 
@@ -66,18 +66,9 @@ namespace TodoApp
             });
         }
 
-
-        private void SortTasks()
+        public void AddTask(Task task)
         {
-            if (Tasks.Count > 0)
-            {
-                Tasks.Sort((x, y) => DateTime.Parse(x.DueDate).CompareTo(DateTime.Parse(y.DueDate)));
-
-                foreach (Task task in Tasks)
-                {
-                    task.Number = Tasks.IndexOf(task) + 1;
-                }
-            }
+            Tasks.Add(task);
         }
 
         private bool IsValidInput()
@@ -133,9 +124,9 @@ namespace TodoApp
             };
 
             Tasks.Add(newTask);
-            SortTasks();
-            UpdateContacts();
+        
             ClearInputFields();
+            txtTask.Focus();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
