@@ -36,7 +36,6 @@
             btnClear = new Button();
             btnAdd = new Button();
             gbToDo = new GroupBox();
-            lblInstruct = new Label();
             fpTasks = new FlowLayoutPanel();
             gbCreateTask.SuspendLayout();
             gbToDo.SuspendLayout();
@@ -114,7 +113,6 @@
             // gbToDo
             // 
             gbToDo.Controls.Add(fpTasks);
-            gbToDo.Controls.Add(lblInstruct);
             gbToDo.Location = new Point(13, 192);
             gbToDo.Name = "gbToDo";
             gbToDo.Size = new Size(457, 249);
@@ -122,17 +120,9 @@
             gbToDo.TabStop = false;
             gbToDo.Text = "Tasks To Do";
             // 
-            // lblInstruct
-            // 
-            lblInstruct.AutoSize = true;
-            lblInstruct.Location = new Point(146, 0);
-            lblInstruct.Name = "lblInstruct";
-            lblInstruct.Size = new Size(161, 20);
-            lblInstruct.TabIndex = 1;
-            lblInstruct.Text = "Click tasks to complete";
-            // 
             // fpTasks
             // 
+            fpTasks.AutoScroll = true;
             fpTasks.Location = new Point(0, 23);
             fpTasks.Name = "fpTasks";
             fpTasks.Size = new Size(457, 226);
@@ -150,7 +140,6 @@
             gbCreateTask.ResumeLayout(false);
             gbCreateTask.PerformLayout();
             gbToDo.ResumeLayout(false);
-            gbToDo.PerformLayout();
             ResumeLayout(false);
         }
 

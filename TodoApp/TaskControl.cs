@@ -10,21 +10,30 @@ namespace TodoApp
 {
     public partial class TaskControl : UserControl
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Task TaskDetails { get; set; }
         public TaskControl(Task taskDetails)
         {
             InitializeComponent();
+            TaskDetails = taskDetails;
+
             lblTask.Text = taskDetails.Description;
             lblDueDate.Text = taskDetails.DueDate;
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Task of type: {lblTask.Text} Completed!");
+            var frm = this.FindForm() as TodoForm;
+            
+            if (frm != null)
+            {
+                // delete myself from the list of contacts on the base for.
+                frm.Tasks.Remove(TaskDetails);
+                frm.UpdateContacts();
+                Console.WriteLine($"Task '{TaskDetails.Description}' marked as complete and removed from the list.");
+            }
         }
 
-        private void lblTaskLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+    
 }

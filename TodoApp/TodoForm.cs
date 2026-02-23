@@ -18,15 +18,11 @@ namespace TodoApp
 
         public void UpdateContacts()
         {
+            fpTasks.Controls.Clear();
             foreach (Task task in Tasks)
             {
                 fpTasks.Controls.Add(new TaskControl(task));
             }
-            //lbTasks.Items.Clear();
-            //foreach (Task task in Tasks)
-            //    {
-            //        lbTasks.Items.Add(task);
-            //    }
         }
 
         private void SortTasks()
@@ -35,7 +31,7 @@ namespace TodoApp
             {
                 Tasks.Sort((x, y) => DateTime.Parse(x.DueDate).CompareTo(DateTime.Parse(y.DueDate)));
 
-                foreach (Task task in Tasks) 
+                foreach (Task task in Tasks)
                 {
                     task.Number = Tasks.IndexOf(task) + 1;
                 }
@@ -103,24 +99,7 @@ namespace TodoApp
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearInputFields();
-        }
-
-        private void lbTasks_click(object sender, EventArgs e)
-        {
-            //Task selectedTask = (Task)lbTasks.SelectedItem;
-
-            //// Make sure the selected task is not null
-            //if (selectedTask != null)
-            //{
-            //    // Toggle the task's completion
-            //    selectedTask.IsCompleted = true;
-
-            //    // Update the list box to reflect the new change
-            //    UpdateContactListBox();
-
-            //    // Show a message box to inform the user
-            //    MessageBox.Show($"'{selectedTask.Description}' has been marked as done", "Task Complete");
-            //}
+            txtTask.Focus();
         }
     }
 }

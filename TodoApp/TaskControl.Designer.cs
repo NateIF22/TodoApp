@@ -44,7 +44,6 @@
             lblTaskLabel.Size = new Size(59, 28);
             lblTaskLabel.TabIndex = 0;
             lblTaskLabel.Text = "Task:";
-            lblTaskLabel.Click += lblTaskLabel_Click;
             // 
             // lblTask
             // 
@@ -55,7 +54,6 @@
             lblTask.Size = new Size(130, 28);
             lblTask.TabIndex = 1;
             lblTask.Text = "Do the dishes";
-            lblTask.Click += this.lblTask_Click;
             // 
             // lblDueDate
             // 
@@ -79,7 +77,7 @@
             // 
             // btnComplete
             // 
-            btnComplete.BackColor = SystemColors.ControlDarkDark;
+            btnComplete.BackColor = SystemColors.ButtonHighlight;
             btnComplete.Location = new Point(315, 39);
             btnComplete.Name = "btnComplete";
             btnComplete.Size = new Size(94, 29);
